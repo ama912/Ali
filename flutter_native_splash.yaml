@@ -1,0 +1,13 @@
+flutter_native_splash:
+  # FOR ALL PLATFORMS, except Android 12+:
+  # ios & Android below 12
+  color: "#ffffff"
+  image: assets/images/splash.png
+
+  # extra note for IOS:
+  # (يمكنك ترك هذا المكان فارغاً أو إضافة إعدادات آيفون هنا)
+
+  # ANDROID 12+ configuration:
+  android_12:
+    image: assets/images/splash.png # أو ضع هنا الأيقونة المخصصة لأندرويد 12
+    color: "#ffffff"
