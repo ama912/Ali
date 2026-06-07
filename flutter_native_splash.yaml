@@ -1,14 +1,25 @@
 flutter_native_splash:
   # FOR ALL PLATFORMS, except Android 12+:
   # ios & Android below 12
+
+
+  ## اللون الخلفي للشاشة في الوضع العادي
   color: "#ffffff"
+  ## مسار الصورة الخاصة بالشعار
   image: assets/images/splash.png
 
-  # extra note for IOS:
-  # (يمكنك ترك هذا المكان فارغاً أو إضافة إعدادات آيفون هنا)
+
+ # دعم الوضع الداكن (Dark Mode) تلقائياً
+  # color_dark: "#121212"
+  # image_dark: assets/images/splash_logo_dark.png
 
 
   # ANDROID 12+ configuration:
   android_12:
     image: assets/images/splash.png # أو ضع هنا الأيقونة المخصصة لأندرويد 12
     color: "#ffffff"
+    # image_dark: assets/images/splash_logo_dark.png
+    # icon_background_color_dark: "#121212"
+
+  # لمنع الشاشة من التمدد أو التشوّه
+  fullscreen: true
