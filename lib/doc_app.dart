@@ -27,6 +27,7 @@ class DocApp extends StatelessWidget {
         ),
         // اول ما افتح التطبيق رح يفتح ال
         initialRoute: Routes.onBoardingScreen, //يحدد من أين يبدأ التطبيق
+        // initialRoute: Routes.studentProfileScreen,
         onGenerateRoute:
             appRouter.generateRoute, //يحدد كيف تُبنى الصفحة المطلوبة
       ),
