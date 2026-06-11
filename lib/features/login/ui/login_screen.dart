@@ -1,12 +1,10 @@
 import 'package:ali/core/helpers/spacing.dart';
 import 'package:ali/core/theming/styles.dart';
 import 'package:ali/core/widgets/app_text_button.dart';
-import 'package:ali/core/widgets/app_text_form_field.dart';
-import 'package:ali/features/login/data/models/login_request_body.dart'
-    show LoginRequestBody;
 import 'package:ali/features/login/logic/cubit/login_cubit.dart';
-import 'package:ali/features/login/ui/widgets/already_have_account_text.dart'
-    show AlreadyHaveAccountText;
+import 'package:ali/features/login/ui/widgets/dont_have_account_text.dart'
+    show DontHaveAccountText;
+
 import 'package:ali/features/login/ui/widgets/email_and_password.dart'
     show EmailAndPassword;
 import 'package:ali/features/login/ui/widgets/login_bloc_listener.dart'
@@ -65,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(16),
                     const TermsAndConditionsText(),
                     verticalSpace(60),
-                    const AlreadyHaveAccountText(),
+                    const DontHaveAccountText(),
 
                     const LoginBlocListener(),
                   ],
@@ -80,13 +78,17 @@ class LoginScreen extends StatelessWidget {
 
   void validateThenDoLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-        LoginRequestBody(
-          email: context.read<LoginCubit>().emailController.text,
-          password: context.read<LoginCubit>().passwordController.text,
-        ),
-      );
+      context.read<LoginCubit>().emitLoginStates();
     }
+
+    // if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    //   context.read<LoginCubit>().emitLoginStates(
+    //     LoginRequestBody(
+    //       email: context.read<LoginCubit>().emailController.text,
+    //       password: context.read<LoginCubit>().passwordController.text,
+    //     ),
+    //   );
+    // }
   }
 }
 
