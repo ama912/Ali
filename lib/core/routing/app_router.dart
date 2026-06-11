@@ -5,6 +5,8 @@ import 'package:ali/features/home/home_screen.dart';
 import 'package:ali/features/login/logic/cubit/login_cubit.dart';
 import 'package:ali/features/login/ui/login_screen.dart' show LoginScreen;
 import 'package:ali/features/onboarding/onboarding.dart' show OnboardingScreen;
+import 'package:ali/features/sign_up/logic/cubit/sign_up_cubit.dart';
+import 'package:ali/features/sign_up/ui/sign_up_screen.dart' show SignUpScreen;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 
@@ -23,7 +25,7 @@ class AppRouter {
             //arguments : 'arguments',
           ),
         );
-
+      //? loginScreen
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -31,7 +33,14 @@ class AppRouter {
             child: const LoginScreen(),
           ),
         );
-
+      //? signup
+      case Routes.signUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignupCubit>(),
+            child: const SignUpScreen(),
+          ),
+        );
       case Routes.studentProfileScreen:
         return MaterialPageRoute(builder: (_) => const StudentProfileScreen());
 

@@ -11,8 +11,18 @@ class AppRegex {
     ).hasMatch(password);
   }
 
+  // static bool isPhoneNumberValid(String phoneNumber) {
+  //   return RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(phoneNumber);
+  // }
+
+  // static bool isPhoneNumberValid(String phoneNumber) {
+  //   // أرقام الجوال السورية تبدأ بـ 93 أو 94 أو 95 أو 96 أو 98 أو 99
+  //   // ثم يليها 7 أرقام، والعدد الكلي = 9 أرقام
+  //   return RegExp(r'^(9[3-689])[0-9]{7}$').hasMatch(phoneNumber);
+  // }
   static bool isPhoneNumberValid(String phoneNumber) {
-    return RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(phoneNumber);
+    // تدعم: 93... أو 093... مع باقي البادئات
+    return RegExp(r'^0?9[3-689][0-9]{7}$').hasMatch(phoneNumber);
   }
 
   static bool hasLowerCase(String password) {
